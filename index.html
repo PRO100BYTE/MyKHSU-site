@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой ИТИ ХГУ - Официальное мобильное приложение</title>
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                Мой ИТИ ХГУ
+            </a>
+            <nav class="desktop-nav">
+                <div class="nav-links">
+                    <a href="#features">Возможности</a>
+                    <a href="#screenshots">Скриншоты</a>
+                    <a href="#developers">Разработчики</a>
+                    <a href="#download">Скачать</a>
+                    <a href="memes.html">Студенческие мемы</a>
+                </div>
+            </nav>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-links">
+            <a href="#features">Возможности</a>
+            <a href="#screenshots">Скриншоты</a>
+            <a href="#developers">Разработчики</a>
+            <a href="#download">Скачать</a>
+            <a href="memes.html">Студенческие мемы</a>
+        </div>
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-right">
+                <h1>Мой ИТИ ХГУ - Твой университет в кармане</h1>
+                <p>Официальное мобильное приложение для студентов и преподавателей Инженерно-технологического института Хакасского государственного университета</p>
+                <div class="hero-btns">
+                    <a href="#download" class="btn btn-primary">
+                        <i class="fas fa-download"></i> Скачать приложение
+                    </a>
+                    <a href="#features" class="btn btn-secondary">
+                        <i class="fas fa-play-circle"></i> Узнать больше
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image" data-aos="fade-left">
+                <div class="phone-mockup floating">
+                    <div class="phone-screen">
+                        <div class="app-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Мой ИТИ ХГУ</h3>
+                        <p>Расписание, новости, карта и многое другое</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Возможности приложения</h2>
+                <p>Все, что нужно студенту и преподавателю в одном приложении</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Умное расписание</h3>
+                    <p>Просмотр расписания занятий для студентов и преподавателей в двух форматах: по группам и по ФИО. Режимы просмотра на день и на неделю.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <h3>Новости университета</h3>
+                    <p>Чтение актуальных новостей университета с поддержкой офлайн-доступа. Уведомления о важных событиях.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>Интерактивная карта</h3>
+                    <p>Навигация по учебным корпусам университета. Построение маршрутов и поиск аудиторий.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Раздел для первокурсников</h3>
+                    <p>Полезная информация для новых студентов: ссылки на официальные сайты, группы ВКонтакте и образовательные порталы.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Кастомизация интерфейса</h3>
+                    <p>Настройка внешнего вида приложения: светлая и тёмная темы, несколько цветовых схем на выбор.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="feature-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3>Офлайн-режим</h3>
+                    <p>Полная работа без интернета с кэшированием данных. Все функции доступны даже при слабом соединении.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section class="section screenshots" id="screenshots">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Скриншоты приложения</h2>
+                <p>Удобный и современный интерфейс, адаптированный под ваши потребности</p>
+            </div>
+            <div class="screenshots-container">
+                <div class="screenshot-carousel-container" data-aos="fade-up">
+                    <div class="screenshot-carousel" id="screenshotCarousel">
+                        <div class="screenshot-slide">
+                            <img src="./images/screenshots/screenshot1.png" alt="Главный экран приложения">
+                        </div>
+                        <div class="screenshot-slide">
+                            <img src="./images/screenshots/screenshot2.png" alt="Расписание занятий">
+                        </div>
+                        <div class="screenshot-slide">
+                            <img src="./images/screenshots/screenshot3.png" alt="Новости университета">
+                        </div>
+                        <div class="screenshot-slide">
+                            <img src="./images/screenshots/screenshot4.png" alt="Интерактивная карта">
+                        </div>
+                        <div class="screenshot-slide">
+                            <img src="./images/screenshots/screenshot5.png" alt="Раздел для первокурсников">
+                        </div>
+                        <div class="screenshot-slide">
+                            <img src="./images/screenshots/screenshot6.png" alt="Настройки приложения">
+                        </div>
+                        <div class="screenshot-slide">
+                            <img src="./images/screenshots/screenshot7.png" alt="Темная тема">
+                        </div>
+                        <div class="screenshot-slide">
+                            <img src="./images/screenshots/screenshot8.png" alt="Уведомления">
+                        </div>
+                        <div class="screenshot-slide">
+                            <img src="./images/screenshots/screenshot9.png" alt="Поиск аудиторий">
+                        </div>
+                    </div>
+                    <button class="carousel-nav carousel-prev" id="carouselPrev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-nav carousel-next" id="carouselNext">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="carousel-dots" id="carouselDots">
+                        <!-- Dots will be generated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Student Fun Section -->
+    <section class="student-fun">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Студенческий юмор</h2>
+                <p>Немного развлечения в перерывах между парами</p>
+            </div>
+            <div class="fun-container" data-aos="fade-up">
+                <div class="meme-banner">
+                    <div class="meme-display" id="memeDisplay">
+                        <div class="meme-text" id="memeText">Загружаем студенческий мем...</div>
+                        <div class="meme-author" id="memeAuthor"></div>
+                    </div>
+                    <div class="meme-controls">
+                        <button class="meme-btn" id="newMemeBtn">Другой мем</button>
+                        <a href="memes.html" class="meme-btn">Все мемы</a>
+                    </div>
+                </div>
+                <p>Генерируйте случайные студенческие мемы или посмотрите всю коллекцию!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Developers Section -->
+    <section class="section" id="developers">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Наша команда</h2>
+                <p>Талантливые разработчики, создавшие приложение Мой ИТИ ХГУ</p>
+            </div>
+            <div class="developers-grid">
+                <div class="developer-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="developer-avatar">
+                        <img src="./images/devs/rm30303.png" alt="Кучма Роман">
+                    </div>
+                    <h3>Кучма Роман (rm30303)</h3>
+                    <div class="developer-role">Java разработчик</div>
+                    <p class="developer-quote">Узнав об идее Жеки, я тоже решил сначала накидать свое приложение: сначала возился с дизайном, а потом - с парсингом данных сервера. Параллельно помогал Жеке с его приложением, предлагая интересные фичи, а также показав примерный процесс парсинга данных. Удивился с того, как у Евгения быстро развивается проект :)</p>
+                </div>
+                <div class="developer-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="developer-avatar">
+                        <img src="./images/devs/thedayg0ne.png" alt="Стручков Евгений">
+                    </div>
+                    <h3>Стручков Евгений (TheDayG0ne)</h3>
+                    <div class="developer-role">Основатель и руководитель команды PRO100BYTE</div>
+                    <p class="developer-quote">Мне зашел сайт с расписанием ХГУ, но было куча неудобных моментов: У сайта не было PWA функциональности, что плодило кучу вкладок при его открытии через ярлык с рабочего стола телефона, а также при отсутствии интернета не было возможности воспользоваться сервисом - это ж сайт :) Поэтому и появилась идея запилить свое мобильное приложение, с кэшированием расписания и новостей и другими крутыми плюшками</p>
+                </div>
+                <div class="developer-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="developer-avatar ai">
+                        <img src="./images/devs/ai.png" alt="Искусственный интеллект">
+                    </div>
+                    <h3>Искусственный интеллект</h3>
+                    <div class="developer-role">DeepSeek, Google Gemini</div>
+                    <p class="developer-quote">Да, иногда наши ответы и решения могут быть неточными, но за счет нашего "тандема" с пользователем мы способны создавать крутые решения. Без нас не было бы топового дизайна приложения, а само приложение было бы багованное и неудобным :)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="section download" id="download">
+        <div class="container">
+            <div class="download-content" data-aos="fade-up">
+                <div class="section-title">
+                    <h2>Скачайте приложение</h2>
+                    <p>Получите полный доступ ко всем функциям Мой ИТИ ХГУ</p>
+                </div>
+                <div class="download-btns">
+                    <a href="#" class="download-btn">
+                        <i class="fab fa-google-play"></i>
+                        <div class="download-btn-text">
+                            <span>Доступно в</span>
+                            <span>Google Play</span>
+                        </div>
+                    </a>
+                    <a href="https://github.com/PRO100BYTE/MyKHSU/releases/tag/stable" class="download-btn">
+                        <i class="fab fa-android"></i>
+                        <div class="download-btn-text">
+                            <span>Загрузите</span>
+                            <span>APK</span>
+                        </div>
+                    </a>
+                    <a href="#" class="download-btn">
+                        <i class="fab fa-apple"></i>
+                        <div class="download-btn-text">
+                            <span>Загрузите в</span>
+                            <span>App Store</span>
+                        </div>
+                    </a>
+                    <a href="https://testflight.apple.com/join/UmAjEEsb" class="download-btn">
+                        <i class="fab fa-apple"></i>
+                        <div class="download-btn-text">
+                            <span>Загрузите в</span>
+                            <span>TestFlight</span>
+                        </div>
+                    </a>
+                    <a href="https://github.com/PRO100BYTE/MyKHSU" class="download-btn">
+                        <i class="fab fa-github"></i>
+                        <div class="download-btn-text">
+                            <span>Исходный код на</span>
+                            <span>GitHub</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>О приложении</h3>
+                    <p>Мой ИТИ ХГУ - мобильное приложение для студентов и преподавателей Инженерно-технологического института Хакасского государственного университета.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="https://github.com/PRO100BYTE/MyKHSU"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Разделы</h3>
+                    <ul class="footer-links">
+                        <li><a href="#features">Возможности</a></li>
+                        <li><a href="#screenshots">Скриншоты</a></li>
+                        <li><a href="#developers">Разработчики</a></li>
+                        <li><a href="#download">Скачать</a></li>
+                        <li><a href="memes.html">Студенческие мемы</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Поддержка</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:community@pro100byte.ru">Обратная связь</a></li>
+                        <li><a href="./privacy-policy.html">Политика конфиденциальности</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Разработано студентами группы 125-1 в составе команды PRO100BYTE Team</p>
+                <p>При поддержке ХГУ им. Н.Ф. Катанова и ООО "Скалк Софт"</p>
+                <p>&copy; 2025 Мой ИТИ ХГУ. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./js/carousel.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>
