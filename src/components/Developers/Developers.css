@@ -1,0 +1,148 @@
+.developers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.developer-card {
+  composes: glass;
+  border-radius: 20px;
+  padding: 40px 30px;
+  box-shadow: var(--glass-shadow);
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.developer-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.developer-card:hover::before {
+  opacity: 1;
+}
+
+.developer-card:hover {
+  background: var(--bg-card-hover);
+  transform: translateY(-10px);
+  box-shadow: var(--glass-shadow), var(--glow-strong);
+}
+
+.developer-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  overflow: hidden;
+  border: 3px solid var(--primary-color);
+  box-shadow: var(--glow);
+  position: relative;
+  background: var(--bg-card);
+}
+
+.developer-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.developer-avatar.ai::before {
+  content: '🤖';
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background: var(--primary-color);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  box-shadow: var(--glow);
+}
+
+.developer-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+  color: var(--text-color);
+}
+
+.developer-role {
+  color: var(--primary-light);
+  font-weight: 500;
+  margin-bottom: 20px;
+  text-shadow: var(--glow);
+}
+
+.developer-quote {
+  color: var(--text-secondary);
+  font-style: italic;
+  position: relative;
+  padding: 0 10px;
+  line-height: 1.6;
+}
+
+.developer-quote::before,
+.developer-quote::after {
+  content: '"';
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  position: absolute;
+  text-shadow: var(--glow);
+}
+
+.developer-quote::before {
+  top: -10px;
+  left: -5px;
+}
+
+.developer-quote::after {
+  bottom: -15px;
+  right: -5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .developers-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .developer-card {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .developer-card {
+    padding: 25px 15px;
+  }
+  
+  .developer-avatar {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .developer-card h3 {
+    font-size: 1.1rem;
+  }
+  
+  .developer-role {
+    font-size: 0.9rem;
+  }
+  
+  .developer-quote {
+    font-size: 0.9rem;
+  }
+}
