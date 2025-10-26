@@ -9,15 +9,15 @@ const Screenshots = () => {
   const trackRef = useRef(null);
 
   const screenshots = [
-    { id: 1, src: '/images/screenshots/screenshot1.png', alt: 'Главный экран приложения' },
-    { id: 2, src: '/images/screenshots/screenshot2.png', alt: 'Расписание занятий' },
-    { id: 3, src: '/images/screenshots/screenshot3.png', alt: 'Новости университета' },
-    { id: 4, src: '/images/screenshots/screenshot4.png', alt: 'Интерактивная карта' },
+    { id: 1, src: '/images/screenshots/screenshot1.png', alt: 'Расписание студента (на день)' },
+    { id: 2, src: '/images/screenshots/screenshot2.png', alt: 'Расписание студента (на неделю)' },
+    { id: 3, src: '/images/screenshots/screenshot3.png', alt: 'Расписание преподавателя' },
+    { id: 4, src: '/images/screenshots/screenshot4.png', alt: 'Интерактивная карта корпусов ХГУ' },
     { id: 5, src: '/images/screenshots/screenshot5.png', alt: 'Раздел для первокурсников' },
-    { id: 6, src: '/images/screenshots/screenshot6.png', alt: 'Настройки приложения' },
-    { id: 7, src: '/images/screenshots/screenshot7.png', alt: 'Темная тема' },
-    { id: 8, src: '/images/screenshots/screenshot8.png', alt: 'Уведомления' },
-    { id: 9, src: '/images/screenshots/screenshot9.png', alt: 'Поиск аудиторий' }
+    { id: 6, src: '/images/screenshots/screenshot6.png', alt: 'Раздел с новостями' },
+    { id: 7, src: '/images/screenshots/screenshot7.png', alt: 'Настройки приложения' },
+    { id: 8, src: '/images/screenshots/screenshot8.png', alt: 'Настройка формата отображения расписания' },
+    { id: 9, src: '/images/screenshots/screenshot9.png', alt: 'Настройка уведомлений' }
   ];
 
   // Бесконечная карусель
@@ -87,46 +87,74 @@ const Screenshots = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className="iphone-mockup-13">
-              <div className="iphone-notch"></div>
-              <div className="screenshot-carousel">
-                <div 
-                  className="screenshot-track"
-                  ref={trackRef}
-                  style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-                >
-                  {screenshots.map((screenshot, index) => (
-                    <div key={screenshot.id} className="screenshot-slide">
+            <div className="screenshot-carousel">
+              <div 
+                className="screenshot-track"
+                ref={trackRef}
+                style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+              >
+                {screenshots.map((screenshot, index) => (
+                  <div key={screenshot.id} className="screenshot-slide">
+                    <div className="screenshot-item">
+                      <div className="screenshot-glow"></div>
                       <motion.img 
                         src={screenshot.src} 
                         alt={screenshot.alt}
-                        whileHover={{ scale: 1.02 }}
+                        whileHover={{ scale: 1.03 }}
                         transition={{ duration: 0.3 }}
                         onClick={() => openModal(screenshot)}
                       />
+                      <div className="screenshot-overlay">
+                        <button 
+                          className="screenshot-zoom-btn"
+                          onClick={() => openModal(screenshot)}
+                        >
+                          <i className="fas fa-search-plus"></i>
+                        </button>
+                      </div>
                     </div>
-                  ))}
-                </div>
-                
-                <button className="carousel-nav carousel-prev" onClick={prevSlide}>
-                  <i className="fas fa-chevron-left"></i>
-                </button>
-                <button className="carousel-nav carousel-next" onClick={nextSlide}>
-                  <i className="fas fa-chevron-right"></i>
-                </button>
-                
-                <div className="carousel-dots">
-                  {screenshots.map((_, index) => (
-                    <button
-                      key={index}
-                      className={`carousel-dot ${currentSlide === index ? 'active' : ''}`}
-                      onClick={() => goToSlide(index)}
-                    />
-                  ))}
-                </div>
+                  </div>
+                ))}
+              </div>
+              
+              <button className="carousel-nav carousel-prev" onClick={prevSlide}>
+                <i className="fas fa-chevron-left"></i>
+              </button>
+              <button className="carousel-nav carousel-next" onClick={nextSlide}>
+                <i className="fas fa-chevron-right"></i>
+              </button>
+              
+              <div className="carousel-dots">
+                {screenshots.map((_, index) => (
+                  <button
+                    key={index}
+                    className={`carousel-dot ${currentSlide === index ? 'active' : ''}`}
+                    onClick={() => goToSlide(index)}
+                  />
+                ))}
               </div>
             </div>
           </motion.div>
+
+          {/* Миниатюры для быстрой навигации */}
+          <div className="screenshot-thumbnails">
+            {screenshots.slice(0, 4).map((screenshot, index) => (
+              <motion.div
+                key={screenshot.id}
+                className={`thumbnail ${currentSlide === index ? 'active' : ''}`}
+                onClick={() => goToSlide(index)}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <img src={screenshot.src} alt={screenshot.alt} />
+              </motion.div>
+            ))}
+            {screenshots.length > 4 && (
+              <div className="thumbnail-more">
+                +{screenshots.length - 4}
+              </div>
+            )}
+          </div>
         </div>
       </div>
 

@@ -6,6 +6,7 @@ import './App.css';
 // Lazy loading для страниц
 const Home = lazy(() => import('./pages/Home/Home'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy/PrivacyPolicy'));
+const HelpUs = lazy(() => import('./pages/HelpUs/HelpUs'));
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/help-us" element={<HelpUs />} />
         </Routes>
       </Suspense>
     </div>
