@@ -66,7 +66,7 @@ const Developers = () => {
                 transition: { duration: 0.3 }
               }}
             >
-              <div className={`developer-avatar ${developer.ai ? 'ai' : ''}`}>
+              <div className={`developer-avatar`}>
                 <img src={developer.avatar} alt={developer.name} />
               </div>
               <h3>{developer.name}</h3>

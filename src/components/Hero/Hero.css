@@ -99,7 +99,7 @@
 .hero-screenshot {
   width: 100%;
   height: auto;
-  border-radius: 60px; /* Увеличил скругление углов */
+  border-radius: 60px; /* 60px для ПК */
   box-shadow: 
     var(--glass-shadow),
     var(--glow-strong),
@@ -451,6 +451,11 @@
     max-width: 300px;
   }
   
+  /* 45px радиус скругления для мобильных устройств */
+  .hero-screenshot {
+    border-radius: 45px;
+  }
+  
   .game-modal-content {
     padding: 25px;
   }
@@ -496,6 +501,10 @@
   
   .screenshot-container {
     max-width: 280px;
+  }
+  
+  .hero-screenshot {
+    border-radius: 45px;
   }
   
   .easter-egg-hint {
@@ -553,6 +562,10 @@
     max-width: 260px;
   }
   
+  .hero-screenshot {
+    border-radius: 45px;
+  }
+  
   .color-grid {
     max-width: 140px;
   }
@@ -583,6 +596,10 @@
   
   .screenshot-container {
     max-width: 240px;
+  }
+  
+  .hero-screenshot {
+    border-radius: 45px;
   }
   
   .easter-egg-hint {
