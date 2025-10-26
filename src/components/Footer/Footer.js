@@ -19,8 +19,8 @@ const Footer = () => {
             <h3>О приложении</h3>
             <p>Мой ИТИ ХГУ - мобильное приложение для студентов и преподавателей Инженерно-технологического института Хакасского государственного университета.</p>
             <div className="social-links">
-              <a href="#"><i className="fab fa-vk"></i></a>
-              <a href="#"><i className="fab fa-telegram"></i></a>
+              <a href="https://vk.com/thedayg0ne"><i className="fab fa-vk"></i></a>
+              <a href="https://t.me/thedayg0ne"><i className="fab fa-telegram"></i></a>
               <a href="https://github.com/PRO100BYTE/MyKHSU"><i className="fab fa-github"></i></a>
             </div>
           </div>
