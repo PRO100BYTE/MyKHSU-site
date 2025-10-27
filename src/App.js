@@ -9,6 +9,7 @@ const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy/PrivacyPolicy'));
 const HelpUs = lazy(() => import('./pages/HelpUs/HelpUs'));
 const Roadmap = lazy(() => import('./pages/Roadmap/Roadmap'));
 const DownloadThankYou = lazy(() => import('./pages/DownloadThankYou/DownloadThankYou'));
+const Error = lazy(() => import('./pages/Error/Error'));
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
           <Route path="/help-us" element={<HelpUs />} />
           <Route path="/roadmap" element={<Roadmap />} />
           <Route path="/download-thank-you" element={<DownloadThankYou />} />
+          <Route path="/error" element={<Error />} />
+          <Route path="*" element={<Error />} />
         </Routes>
       </Suspense>
     </div>
