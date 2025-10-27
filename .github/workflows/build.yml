@@ -16,11 +16,11 @@ jobs:
       with:
         token: ${{ secrets.PUBLISH_TOKEN }}
 
-    - run : npm i
+    - run : rm -rf .git/hooks
       shell: bash
-    - run : npm ci
+    - run : npm install
       shell: bash
-    - run : npm run build
+    - run : npx react-scripts build
       shell: bash
     - run : git config user.name github-actions
       shell: bash
