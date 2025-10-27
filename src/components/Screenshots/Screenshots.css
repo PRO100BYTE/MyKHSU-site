@@ -27,8 +27,7 @@
 
 .screenshot-carousel-container {
   width: 100%;
-  max-width: 280px; /* Соответствует пропорциям iPhone 13 (1170x2532) */
-  height: 606px; /* 280 * (2532/1170) = 606px */
+  max-width: 1200px;
   overflow: hidden;
   position: relative;
   border-radius: 25px;
@@ -41,24 +40,24 @@
 .screenshot-carousel {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 800px; /* Увеличили высоту для ПК */
   overflow: hidden;
   border-radius: 25px;
 }
 
 .screenshot-track {
-  display: flex;
+  display: grid;
   transition: transform 0.5s ease;
   height: 100%;
+  width: 100%;
 }
 
 .screenshot-slide {
-  min-width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 40px;
 }
 
 .screenshot-item {
@@ -84,8 +83,9 @@
 }
 
 .screenshot-slide img {
-  width: 100%;
+  width: auto;
   height: 100%;
+  max-width: 100%;
   object-fit: contain;
   border-radius: 15px;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
@@ -205,66 +205,6 @@
   background: var(--primary-color);
 }
 
-/* Миниатюры */
-.screenshot-thumbnails {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.thumbnail {
-  width: 70px;
-  height: 70px;
-  border-radius: 10px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-  position: relative;
-  background: var(--bg-card);
-  backdrop-filter: var(--glass-blur);
-}
-
-.thumbnail.active {
-  border-color: var(--primary-color);
-  box-shadow: var(--glow);
-  transform: scale(1.1);
-}
-
-.thumbnail img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.thumbnail:hover {
-  transform: scale(1.15);
-  border-color: var(--primary-light);
-}
-
-.thumbnail-more {
-  width: 70px;
-  height: 70px;
-  border-radius: 10px;
-  background: var(--primary-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-  font-size: 0.9rem;
-}
-
-.thumbnail-more:hover {
-  background: var(--primary-dark);
-  transform: scale(1.1);
-  box-shadow: var(--glow);
-}
-
 /* Модальное окно */
 .modal-overlay {
   position: fixed;
@@ -337,10 +277,25 @@
 }
 
 /* Responsive */
+@media (max-width: 1200px) {
+  .screenshot-carousel {
+    height: 750px; /* Уменьшаем для больших планшетов */
+  }
+}
+
+@media (max-width: 992px) {
+  .screenshot-carousel {
+    height: 1000px; /* Для планшетов */
+  }
+  
+  .screenshot-slide {
+    padding: 30px;
+  }
+}
+
 @media (max-width: 768px) {
-  .screenshot-carousel-container {
-    max-width: 250px;
-    height: 541px; /* 250 * (2532/1170) = 541px */
+  .screenshot-carousel {
+    height: 750px; /* Для маленьких планшетов */
   }
   
   .carousel-nav {
@@ -349,24 +304,13 @@
   }
   
   .screenshot-slide {
-    padding: 15px;
-  }
-  
-  .thumbnail {
-    width: 60px;
-    height: 60px;
-  }
-  
-  .thumbnail-more {
-    width: 60px;
-    height: 60px;
+    padding: 25px;
   }
 }
 
 @media (max-width: 576px) {
-  .screenshot-carousel-container {
-    max-width: 220px;
-    height: 476px; /* 220 * (2532/1170) = 476px */
+  .screenshot-carousel {
+    height: 1100px; /* Для больших телефонов */
   }
   
   .carousel-nav {
@@ -375,7 +319,7 @@
   }
   
   .screenshot-slide {
-    padding: 10px;
+    padding: 20px;
   }
   
   .carousel-dots {
@@ -389,23 +333,21 @@
   .modal-content p {
     font-size: 1rem;
   }
-  
-  .thumbnail {
-    width: 50px;
-    height: 50px;
+}
+
+@media (max-width: 480px) {
+  .screenshot-carousel {
+    height: 850px; /* Для средних телефонов */
   }
   
-  .thumbnail-more {
-    width: 50px;
-    height: 50px;
-    font-size: 0.8rem;
+  .screenshot-slide {
+    padding: 15px;
   }
 }
 
 @media (max-width: 400px) {
-  .screenshot-carousel-container {
-    max-width: 200px;
-    height: 433px; /* 200 * (2532/1170) = 433px */
+  .screenshot-carousel {
+    height: 750px; /* Для маленьких телефонов */
   }
   
   .carousel-nav {
@@ -417,5 +359,15 @@
     width: 50px;
     height: 50px;
     font-size: 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .screenshot-carousel {
+    height: 700px; /* Для очень маленьких телефонов */
+  }
+  
+  .screenshot-slide {
+    padding: 12px;
   }
 }

@@ -38,6 +38,7 @@ const Footer = () => {
             <ul className="footer-links">
               <li><a href="mailto:community@pro100byte.ru">Обратная связь</a></li>
               <li><Link to="/privacy-policy">Политика конфиденциальности</Link></li>
+              <li><Link to="/roadmap">План развития</Link></li>
               <li>
                 <Link to="/help-us" className="help-link">
                   <i className="fas fa-hands-helping"></i>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import Confetti from 'react-confetti';
 import './Hero.css';
 
@@ -283,6 +284,9 @@ const Hero = () => {
               <a href="#features" className="btn btn-secondary">
                 <i className="fas fa-play-circle"></i> Узнать больше
               </a>
+              <Link to="/roadmap" className="btn btn-secondary roadmap-btn">
+                <i className="fas fa-map"></i> План развития
+              </Link>
             </div>
           </motion.div>
         </div>

@@ -6,6 +6,7 @@ const Screenshots = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [autoScroll, setAutoScroll] = useState(true);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [visibleSlides, setVisibleSlides] = useState(1);
   const trackRef = useRef(null);
 
   const screenshots = [
@@ -19,6 +20,23 @@ const Screenshots = () => {
     { id: 8, src: '/images/screenshots/screenshot8.png', alt: 'Настройка формата отображения расписания' },
     { id: 9, src: '/images/screenshots/screenshot9.png', alt: 'Настройка уведомлений' }
   ];
+
+  // Определяем количество видимых слайдов в зависимости от ширины экрана
+  useEffect(() => {
+    const updateVisibleSlides = () => {
+      if (window.innerWidth >= 1200) {
+        setVisibleSlides(3);
+      } else if (window.innerWidth >= 768) {
+        setVisibleSlides(2);
+      } else {
+        setVisibleSlides(1);
+      }
+    };
+
+    updateVisibleSlides();
+    window.addEventListener('resize', updateVisibleSlides);
+    return () => window.removeEventListener('resize', updateVisibleSlides);
+  }, []);
 
   // Бесконечная карусель
   useEffect(() => {
@@ -91,7 +109,10 @@ const Screenshots = () => {
               <div 
                 className="screenshot-track"
                 ref={trackRef}
-                style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                style={{ 
+                  transform: `translateX(-${(currentSlide * 100) / visibleSlides}%)`,
+                  gridTemplateColumns: `repeat(${screenshots.length}, calc(100% / ${visibleSlides}))`
+                }}
               >
                 {screenshots.map((screenshot, index) => (
                   <div key={screenshot.id} className="screenshot-slide">
@@ -135,26 +156,6 @@ const Screenshots = () => {
               </div>
             </div>
           </motion.div>
-
-          {/* Миниатюры для быстрой навигации */}
-          <div className="screenshot-thumbnails">
-            {screenshots.slice(0, 4).map((screenshot, index) => (
-              <motion.div
-                key={screenshot.id}
-                className={`thumbnail ${currentSlide === index ? 'active' : ''}`}
-                onClick={() => goToSlide(index)}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <img src={screenshot.src} alt={screenshot.alt} />
-              </motion.div>
-            ))}
-            {screenshots.length > 4 && (
-              <div className="thumbnail-more">
-                +{screenshots.length - 4}
-              </div>
-            )}
-          </div>
         </div>
       </div>
 
