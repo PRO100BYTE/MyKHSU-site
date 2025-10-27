@@ -54,7 +54,7 @@ const Hero = () => {
     setShowConfetti(true);
     setShowGame(true);
     setScore(0);
-    setTimeLeft(15);
+    setTimeLeft(20);
     setGameActive(true);
     setGameFinished(false);
     setLevel(1);
@@ -160,9 +160,9 @@ const Hero = () => {
 
   const getMessage = () => {
     if (gameFinished) {
-      if (score >= 30) return "Отлично! Ты настоящий мастер памяти!";
-      if (score >= 20) return "Хорошо! Отличная работа!";
-      if (score >= 10) return "Неплохо! Можешь лучше!";
+      if (score >= 150) return "Отлично! Ты настоящий мастер памяти!";
+      if (score >= 70) return "Хорошо! Отличная работа!";
+      if (score >= 30) return "Неплохо! Можешь лучше!";
       return "Попробуй еще раз!";
     }
     return "Запомни и повтори последовательность!";
@@ -170,7 +170,7 @@ const Hero = () => {
 
   return (
     <section className="hero" id="home">
-      {showConfetti && <Confetti recycle={false} numberOfPieces={200} />}
+      {showConfetti && <Confetti recycle={false} numberOfPieces={300} />}
       
       <AnimatePresence>
         {showGame && (
@@ -196,7 +196,7 @@ const Hero = () => {
                 <h3>🎮 Пасхалка: Проверь свою память!</h3>
                 <p>{getMessage()}</p>
                 <div className="game-stats">
-                  <span>Время: {timeLeft}с</span>
+                  <span>Время: {timeLeft} с</span>
                   <span>Счет: {score}</span>
                   <span>Уровень: {level}</span>
                 </div>
