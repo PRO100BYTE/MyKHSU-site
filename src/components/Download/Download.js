@@ -7,6 +7,7 @@ const Download = () => {
   const [selectedPlatform, setSelectedPlatform] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [countdown, setCountdown] = useState(5);
+  const [showDownloadButton, setShowDownloadButton] = useState(false);
   const timerRef = useRef(null);
   const navigate = useNavigate();
 
@@ -61,7 +62,7 @@ const Download = () => {
       href: 'https://t2iti.khsu.ru',
       available: false,
       message: 'Мы получили интересную идею: разработать веб-версию приложения Мой ИТИ ХГУ с использованием дизайна и функциональности мобильного приложения. В ближайшее время займемся этим, так что - следите за новостями :)'
-    },
+    }
   ];
 
   const handleDownloadClick = (link) => {
@@ -69,6 +70,7 @@ const Download = () => {
       setSelectedPlatform(link);
       setShowModal(true);
       setCountdown(5);
+      setShowDownloadButton(false);
       
       // Очищаем предыдущий таймер, если он существует
       if (timerRef.current) {
@@ -79,12 +81,17 @@ const Download = () => {
         setCountdown((prev) => {
           if (prev <= 1) {
             clearInterval(timerRef.current);
-            // Открываем выбранную страницу в новой вкладке
-            window.open(link.href, '_blank', 'noopener,noreferrer');
-            // Перенаправляем текущую вкладку на страницу благодарности
-            setTimeout(() => {
-              navigate('/download-thank-you');
-            }, 100);
+            
+            // На мобильных устройствах показываем кнопку для ручного перехода
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+              setShowDownloadButton(true);
+            } else {
+              // На ПК открываем в новой вкладке и перенаправляем текущую
+              window.open(link.href, '_blank', 'noopener,noreferrer');
+              setTimeout(() => {
+                navigate('/download-thank-you');
+              }, 100);
+            }
             return 0;
           }
           return prev - 1;
@@ -94,6 +101,16 @@ const Download = () => {
       setSelectedPlatform(link);
       setShowModal(true);
       setCountdown(0);
+      setShowDownloadButton(false);
+    }
+  };
+
+  const handleManualDownload = () => {
+    if (selectedPlatform && selectedPlatform.available) {
+      window.open(selectedPlatform.href, '_blank', 'noopener,noreferrer');
+      setTimeout(() => {
+        navigate('/download-thank-you');
+      }, 100);
     }
   };
 
@@ -106,6 +123,7 @@ const Download = () => {
     setShowModal(false);
     setSelectedPlatform(null);
     setCountdown(5);
+    setShowDownloadButton(false);
   };
 
   const containerVariants = {
@@ -174,18 +192,32 @@ const Download = () => {
               <div className="download-modal-body">
                 {selectedPlatform.available ? (
                   <>
-                    <div className="countdown-section">
-                      <h4>Спасибо за интерес к нашему приложению!</h4>
-                      <p>Вы будете перенаправлены через: <span className="countdown-number">{countdown}</span> секунд</p>
-                      {countdown > 0 && (
-                        <div className="countdown-loader">
-                          <div 
-                            className="countdown-progress"
-                            style={{ width: `${(countdown / 5) * 100}%` }}
-                          ></div>
+                    {!showDownloadButton ? (
+                      <div className="countdown-section">
+                        <h4>Спасибо за интерес к нашему приложению!</h4>
+                        <p>Вы будете перенаправлены через: <span className="countdown-number">{countdown}</span> секунд</p>
+                        {countdown > 0 && (
+                          <div className="countdown-loader">
+                            <div 
+                              className="countdown-progress"
+                              style={{ width: `${(countdown / 5) * 100}%` }}
+                            ></div>
+                          </div>
+                        )}
+                      </div>
+                    ) : (
+                      <div className="manual-download-section">
+                        <div className="manual-download-icon">
+                          <i className="fas fa-mobile-alt"></i>
                         </div>
-                      )}
-                    </div>
+                        <h4>Перейдите к загрузке</h4>
+                        <p>Нажмите кнопку ниже, чтобы перейти к странице загрузки</p>
+                        <button className="btn btn-primary manual-download-btn" onClick={handleManualDownload}>
+                          <i className={selectedPlatform.icon}></i>
+                          Перейти к загрузке {selectedPlatform.platform}
+                        </button>
+                      </div>
+                    )}
                     
                     <div className="download-info">
                       <p>Если возникли проблемы со скачиванием или использованием приложения, пожалуйста, сообщите нам:</p>
