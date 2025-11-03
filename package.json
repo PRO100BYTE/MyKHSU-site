@@ -4,6 +4,7 @@
   "description": "Мой ИТИ ХГУ - Официальное мобильное приложение",
   "homepage": ".",
   "dependencies": {
+    "@sentry/cli": "^2.57.0",
     "framer-motion": "^8.5.0",
     "react": "^18.2.0",
     "react-confetti": "^6.4.0",
@@ -13,9 +14,10 @@
   },
   "scripts": {
     "start": "npx react-scripts start",
-    "build": "npx react-scripts build",
+    "build": "npx react-scripts build && npm run sentry:sourcemaps",
     "test": "npx react-scripts test",
-    "eject": "npx react-scripts eject"
+    "eject": "npx react-scripts eject",
+    "sentry:sourcemaps": "sentry-cli sourcemaps inject --org sculk --project mykhsu-site ./build && sentry-cli --url https://sentry.sculkmetrics.com/ sourcemaps upload --org sculk --project mykhsu-site ./build"
   },
   "browserslist": {
     "production": [
