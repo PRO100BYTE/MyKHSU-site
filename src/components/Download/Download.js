@@ -26,7 +26,7 @@ const Download = () => {
       icon: 'fab fa-android',
       label: 'Загрузите',
       platform: 'APK',
-      href: 'https://github.com/PRO100BYTE/MyKHSU/releases/tag/stable',
+      href: 'https://github.com/PRO100BYTE/MyKHSU/releases/latest',
       available: true
     },
     {
