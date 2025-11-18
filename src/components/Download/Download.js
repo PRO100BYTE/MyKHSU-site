@@ -34,8 +34,8 @@ const Download = () => {
       icon: 'fab fa-apple',
       label: 'Загрузите в',
       platform: 'App Store',
-      href: '#',
-      available: false,
+      href: 'https://apps.apple.com/ru/app/%D0%BC%D0%BE%D0%B9-%D0%B8%D1%82%D0%B8-%D1%85%D0%B3%D1%83/id6753666439',
+      available: true,
       message: 'На данный момент мы активно работаем над выходом приложения в App Store, поэтому - немного терпения, пожалуйста :). Если не терпится - можно установить тестовую сборку через TestFlight'
     },
     {
