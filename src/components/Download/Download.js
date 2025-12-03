@@ -17,8 +17,8 @@ const Download = () => {
       icon: 'fab fa-google-play',
       label: 'Доступно в',
       platform: 'Google Play',
-      href: '#',
-      available: false,
+      href: 'https://play.google.com/store/apps/details?id=com.pro100byte.myitikhsu',
+      available: true,
       message: 'На данный момент у нас возникли небольшие трудности с публикацией приложения в Google Play, но мы активно работаем над этим, поэтому - немного терпения, пожалуйста :). Если не терпится - можно установить приложение с помощью APK файла'
     },
     {
