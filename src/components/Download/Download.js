@@ -58,9 +58,9 @@ const Download = () => {
       id: 6,
       icon: 'fa fa-cloud',
       label: 'Откройте',
-      platform: 'веб-версию',
-      href: 'https://t2iti.khsu.ru',
-      available: false,
+      platform: 'веб-версию (бета)',
+      href: 'https://web.myiti.pro100byte.ru/',
+      available: true,
       message: 'Мы получили интересную идею: разработать веб-версию приложения Мой ИТИ ХГУ с использованием дизайна и функциональности мобильного приложения. В ближайшее время займемся этим, так что - следите за новостями :)'
     }
   ];
